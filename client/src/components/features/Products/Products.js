@@ -31,8 +31,10 @@ Products.propTypes = {
   products: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
-      title: PropTypes.string.isRequired,
-      content: PropTypes.string.isRequired
+      img: PropTypes.object.isRequired,
+      name: PropTypes.string.isRequired,
+      price: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired
     })
   ),
   loadProducts: PropTypes.func.isRequired
