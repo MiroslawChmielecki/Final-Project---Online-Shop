@@ -1,6 +1,8 @@
 import React from "react";
 import { PropTypes } from "prop-types";
 import ProductsList from "../ProductsList/ProductsList";
+import Spinner from "../../common/Spinner/Spinner";
+import Alert from "../../common/Alert/Alert";
 
 class Products extends React.Component {
   componentDidMount() {
@@ -9,12 +11,19 @@ class Products extends React.Component {
   }
 
   render() {
-    const { products } = this.props;
-    return (
-      <div>
-        <ProductsList products={products} />
-      </div>
-    );
+    const { products, request } = this.props;
+    const { pending, success, error } = request;
+
+    if (pending === false && success === true && products.length > 0)
+      return <ProductsList products={products} />;
+    else if (pending === true || success === null) return <Spinner />;
+    else if (pending === false && error !== null)
+      return <Alert variant="error">{error}</Alert>;
+    else if (pending === false && success === true && products.length === 0)
+      return <Alert variant="info">No products</Alert>;
+    else {
+      return <Alert variant="info">Something went wrong....</Alert>;
+    }
   }
 }
 
