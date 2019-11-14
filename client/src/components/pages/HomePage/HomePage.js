@@ -1,12 +1,12 @@
 import React from "react";
 import Pagination from "../../common/Pagination/Pagination";
-import ProductsList from "../../features/ProductsList/ProductsList";
+import Products from "../../features/Products/ProductsContainer";
 import Sorting from "../../features/Sorting/Sorting";
 
 const HomePage = () => (
   <div>
     <Sorting />
-    <ProductsList />
+    <Products />
     <Pagination />
   </div>
 );

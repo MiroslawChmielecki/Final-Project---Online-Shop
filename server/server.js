@@ -7,7 +7,7 @@ app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-app.get("/", (req, res) => {
+app.get("/api/products", (req, res) => {
   const data = [
     {
       id: "1adfasf",

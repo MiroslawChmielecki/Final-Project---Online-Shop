@@ -1,15 +1,24 @@
 import React from "react";
-import SingleProduct from "../SingleProduct/SingleProduct";
+import { PropTypes } from "prop-types";
 
-const ProductsList = () => (
+import ProductSummary from "../ProductSummary/ProductSummary";
+
+const ProductsList = ({ products }) => (
   <div>
-    <SingleProduct />
-    <SingleProduct />
-    <SingleProduct />
-    <SingleProduct />
-    <SingleProduct />
-    <SingleProduct />
+    {products.map(product => (
+      <ProductSummary key={product.id} {...product} />
+    ))}
   </div>
 );
+
+ProductsList.propTypes = {
+  products: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      content: PropTypes.string.isRequired
+    })
+  )
+};
 
 export default ProductsList;
