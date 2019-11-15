@@ -5,49 +5,57 @@ const loadTestData = async () => {
     {
       id: "21sd42sdsaaf",
       name: "product 1",
-      img: "../client/src/images/productsImages/soccerBall1.jpg",
+      img: { src: "../client/src/images/productsImages/soccerBall1.jpg" },
       description: "Lorem ipsum dipsum tipsum nipsum eliksipsum",
-      price: "33$",
+      price: 33,
       tag: "nowość"
     },
     {
       id: "1122sfgdf",
       name: "product 2",
-      img: "../client/src/images/productsImages/soccerBall2.jpg",
+      img: { src: "../client/src/images/productsImages/soccerBall2.jpg" },
       description: "Lorem ipsum dipsum tipsum nipsum eliksipsum",
-      price: "33$",
+      price: 45,
       tag: "nowość"
     },
     {
-      id: "1133ghgfdhgf",
+      id: "3",
       name: "product 3",
-      img: "../client/src/images/productsImages/soccerBall3.jpg",
+      img: { src: "../client/src/images/productsImages/soccerBall3.jpg" },
       description: "Lorem ipsum dipsum tipsum nipsum eliksipsum",
-      price: "23$",
+      price: 65,
       tag: "nowość"
     },
     {
-      id: "1144gkjhdhgf",
+      id: "4",
       name: "product 4",
-      img: "../client/src/images/productsImages/soccerBall4.jpg",
+      img: { src: "../client/src/images/productsImages/soccerBall4.jpg" },
       description: "Lorem ipsum dipsum tipsum nipsum eliksipsum",
-      price: "23$",
+      price: 56,
       tag: "nowość"
     },
     {
-      id: "1155gbvbcvdhgf",
+      id: "5",
       name: "product 5",
-      img: "../client/src/images/productsImages/soccerGloves1.jpg",
+      img: { src: "../client/src/images/productsImages/soccerGloves1.jpg" },
       description: "Lorem ipsum dipsum tipsum nipsum eliksipsum",
-      price: "23$",
+      price: 78,
       tag: "nowość"
     },
     {
-      id: "1166ghffghgf",
+      id: "6",
       name: "product 6",
-      img: "../client/src/images/productsImages/soccerGloves2.jpg",
+      img: { src: "../client/src/images/productsImages/soccerGloves2.jpg" },
       description: "Lorem ipsum dipsum tipsum nipsum eliksipsum",
-      price: "23$",
+      price: 26,
+      tag: "nowość"
+    },
+    {
+      id: "7",
+      name: "product 7",
+      img: { src: "../client/src/images/productsImages/soccerGloves3.jpg" },
+      description: "Lorem ipsum dipsum tipsum nipsum eliksipsum",
+      price: 55,
       tag: "nowość"
     }
   ];

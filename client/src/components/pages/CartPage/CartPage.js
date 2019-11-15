@@ -1,5 +1,5 @@
 import React from "react";
-import SingleProduct from "../../features/SingleProduct/SingleProduct";
+import SingleProduct from "../../features/SingleProduct/SingleProductContainer";
 
 const CartPage = () => (
   <div>

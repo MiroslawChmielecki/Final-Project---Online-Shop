@@ -19,6 +19,7 @@ class SingleProduct extends React.Component {
     if (pending === false && success === true && products.length > 0)
       return (
         <div>
+          <button>BUTTON BACK</button>
           <h2>{products[0].name}</h2>
           <p>{products[0].tag}</p>
           <p>{products[0].price}$</p>
@@ -42,7 +43,7 @@ SingleProduct.propTypes = {
       tag: PropTypes.string.isRequired,
       img: PropTypes.object.isRequired,
       name: PropTypes.string.isRequired,
-      price: PropTypes.string.isRequired,
+      price: PropTypes.number.isRequired,
       description: PropTypes.string.isRequired
     })
   ),

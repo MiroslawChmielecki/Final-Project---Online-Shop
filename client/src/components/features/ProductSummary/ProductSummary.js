@@ -9,12 +9,12 @@ export class ProductSummary extends React.Component {
 
     return (
       <div className="product-summary">
-        <Link to={`/product/$id`}>
+        <Link to={`/product/${id}`}>
           <h3>{name}</h3>
           <p>{tag}</p>
           <p>{price}</p>
           <p>{description}</p>
-          <img src={img} alt="product-foto" />
+          <img src={img.src} alt="product-foto" />
         </Link>
       </div>
     );
@@ -26,7 +26,7 @@ ProductSummary.propTypes = {
   tag: PropTypes.string,
   img: PropTypes.object,
   name: PropTypes.string,
-  price: PropTypes.string,
+  price: PropTypes.number,
   description: PropTypes.string
 };
 

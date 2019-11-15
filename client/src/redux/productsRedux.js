@@ -12,7 +12,17 @@ export const getRequest = ({ products }) => products.request;
 export const getSingleProduct = ({ products }) => products.singleProduct;
 export const getPages = ({ products }) =>
   Math.ceil(products.amount / products.productsPerPage);
-export const presentPage = ({ products }) => products.presentPage;
+export const getPresentPage = ({ products }) => products.presentPage;
+export const getProductsSorting = ({ products }) => {
+  const sortingProducts = [...products.data].sort((a, b) => {
+    if (a[products.key] > b[products.key])
+      return products.direction === "asc" ? 1 : -1;
+    if (a[products.key] < b[products.key])
+      return products.direction === "asc" ? -1 : 1;
+    return 0;
+  });
+  return sortingProducts;
+};
 
 //ACTIONS
 export const LOAD_PRODUCTS = createActionName("LOAD_PRODUCTS");
@@ -22,6 +32,7 @@ export const ERROR_REQUEST = createActionName("ERROR_REQUEST");
 export const LOAD_SINGLE_PRODUCT = createActionName("LOAD_SINGLE_PRODUCT");
 export const RESET_REQUEST = createActionName("RESET_REQUEST");
 export const LOAD_PRODUCTS_PAGE = createActionName("LOAD_PRODUCTS_PAGE");
+export const SORTING_OPTIONS = createActionName("SORTING_OPTIONS");
 
 //ACTIONS CREATORS
 export const loadProducts = payload => ({ payload, type: LOAD_PRODUCTS });
@@ -37,6 +48,7 @@ export const loadProductsByPage = payload => ({
   payload,
   type: LOAD_PRODUCTS_PAGE
 });
+export const sortingOptions = payload => ({ payload, type: SORTING_OPTIONS });
 
 /* INITIAL STATE */
 
@@ -48,6 +60,8 @@ const initialState = {
     success: null
   },
   singleProduct: [],
+  key: "",
+  direction: "",
   amount: 0,
   productsPerPage: 6,
   presentPage: 1,
@@ -89,6 +103,12 @@ export default function reducer(statePart = initialState, action = {}) {
         presentPage: action.payload.presentPage,
         amount: action.payload.amount,
         data: [...action.payload.products]
+      };
+    case SORTING_OPTIONS:
+      return {
+        ...statePart,
+        key: action.payload.key,
+        direction: action.payload.direction
       };
     default:
       return statePart;

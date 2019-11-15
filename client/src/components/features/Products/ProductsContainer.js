@@ -1,18 +1,18 @@
 import { connect } from "react-redux";
 import {
-  getProducts,
   getRequest,
   loadProductsByPageRequest,
   getPages,
-  presentPage
+  getPresentPage,
+  getProductsSorting
 } from "../../../redux/productsRedux";
 import Products from "./Products";
 
 const mapStateToProps = state => ({
-  products: getProducts(state),
+  products: getProductsSorting(state),
   request: getRequest(state),
   pages: getPages(state),
-  presentPage: presentPage(state)
+  presentPage: getPresentPage(state)
 });
 
 const mapDispatchToProps = dispatch => ({
