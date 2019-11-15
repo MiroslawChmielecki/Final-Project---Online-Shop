@@ -19,3 +19,25 @@ exports.getSingleProduct = async (req, res) => {
     res.status(500).json(err);
   }
 };
+
+// get products by range
+exports.getProductsByRange = async function(req, res) {
+  try {
+    let { startAt, limit } = req.params;
+
+    startAt = parseInt(startAt);
+    limit = parseInt(limit);
+
+    const products = await Product.find()
+      .skip(startAt)
+      .limit(limit);
+    const amount = await Product.countDocuments();
+
+    res.status(200).json({
+      products,
+      amount
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+};

@@ -3,19 +3,41 @@ import { PropTypes } from "prop-types";
 import ProductsList from "../ProductsList/ProductsList";
 import Spinner from "../../common/Spinner/Spinner";
 import Alert from "../../common/Alert/Alert";
+import Pagination from "../../common/Pagination/Pagination";
 
 class Products extends React.Component {
   componentDidMount() {
-    const { loadProducts } = this.props;
-    loadProducts();
+    const { loadProductsByPage, initialPage, productsPerPage } = this.props;
+    loadProductsByPage(initialPage || 1, productsPerPage || 6);
   }
 
-  render() {
-    const { products, request } = this.props;
-    const { pending, success, error } = request;
+  loadProductsPage = page => {
+    const { loadProductsByPage, productsPerPage } = this.props;
+    loadProductsByPage(page, productsPerPage);
+  };
 
-    if (pending === false && success === true && products.length > 0)
-      return <ProductsList products={products} />;
+  render() {
+    const { products, request, pages, presentPage, pagination } = this.props;
+    const { pending, success, error } = request;
+    const { loadProductsPage } = this;
+
+    if (
+      pending === false &&
+      success === true &&
+      products.length > 0 &&
+      pagination === true
+    )
+      return (
+        <div>
+          <ProductsList products={products} />
+
+          <Pagination
+            pages={pages}
+            onPageChange={loadProductsPage}
+            initialPage={presentPage}
+          />
+        </div>
+      );
     else if (pending === true || success === null) return <Spinner />;
     else if (pending === false && error !== null)
       return <Alert variant="error">{error}</Alert>;
@@ -37,6 +59,13 @@ Products.propTypes = {
       description: PropTypes.string.isRequired
     })
   ),
-  loadProducts: PropTypes.func.isRequired
+  loadProductsByPage: PropTypes.func.isRequired
 };
+
+Products.defaultProps = {
+  initialPage: 1,
+  productsPerPage: 6,
+  pagination: true
+};
+
 export default Products;
