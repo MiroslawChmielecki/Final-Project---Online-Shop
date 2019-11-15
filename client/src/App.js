@@ -8,7 +8,7 @@ import FaqPage from "./components/pages/FaqPage/FaqPage";
 import RegulationsPage from "./components/pages/RegulationsPage/RegulationsPage";
 import ContactPage from "./components/pages/ContactPage/ContactPage";
 import NotFoundPage from "./components/pages/NotFoundPage/NotFoundPage";
-import ProductPage from "./components/pages/ProductPage/ProductPage";
+import SingleProduct from "./components/pages/SingleProductPage/SingleProductPage";
 import CartPage from "./components/pages/CartPage/CartPage";
 
 class App extends React.Component {
@@ -22,7 +22,7 @@ class App extends React.Component {
             <Route exact path="/regulations" component={RegulationsPage} />
             <Route exact path="/contact" component={ContactPage} />
             <Route exact path="/cart" component={CartPage} />
-            <Route exact path="/product" component={ProductPage} />
+            <Route exact path="/product/:id" component={SingleProduct} />
             <Route component={NotFoundPage} />
           </Switch>
         </MainLayout>

@@ -9,18 +9,24 @@ const createActionName = name => `app/${reducerName}/${name}`;
 export const getProducts = ({ products }) => products.data;
 export const getProductsCounter = ({ products }) => products.data.length;
 export const getRequest = ({ products }) => products.request;
+export const getSingleProduct = ({ products }) => products.singleProduct;
 
 //ACTIONS
 export const LOAD_PRODUCTS = createActionName("LOAD_PRODUCTS");
 export const START_REQUEST = createActionName("START_REQUEST");
 export const END_REQUEST = createActionName("END_REQUEST");
 export const ERROR_REQUEST = createActionName("ERROR_REQUEST");
+export const LOAD_SINGLE_PRODUCT = createActionName("LOAD_SINGLE_PRODUCT");
 
 //ACTIONS CREATORS
 export const loadProducts = payload => ({ payload, type: LOAD_PRODUCTS });
 export const startRequest = () => ({ type: START_REQUEST });
 export const endRequest = () => ({ type: END_REQUEST });
 export const errorRequest = error => ({ error, type: ERROR_REQUEST });
+export const loadSingleProduct = payload => ({
+  payload,
+  type: LOAD_SINGLE_PRODUCT
+});
 
 /* INITIAL STATE */
 
@@ -30,7 +36,8 @@ const initialState = {
     pending: false,
     error: null,
     success: null
-  }
+  },
+  singleProduct: []
 };
 
 /* REDUCER */
@@ -39,8 +46,6 @@ export default function reducer(statePart = initialState, action = {}) {
   switch (action.type) {
     case LOAD_PRODUCTS:
       return { ...statePart, data: action.payload };
-    default:
-      return statePart;
     case START_REQUEST:
       return {
         ...statePart,
@@ -56,6 +61,10 @@ export default function reducer(statePart = initialState, action = {}) {
         ...statePart,
         request: { pending: false, error: action.error, success: false }
       };
+    case LOAD_SINGLE_PRODUCT:
+      return { ...statePart, singleProduct: action.payload };
+    default:
+      return statePart;
   }
 }
 
@@ -71,6 +80,20 @@ export const loadProductsRequest = () => {
       dispatch(endRequest());
     } catch (e) {
       dispatch(errorRequest());
+    }
+  };
+};
+
+export const loadSingleProductRequest = id => {
+  return async dispatch => {
+    dispatch(startRequest());
+    try {
+      let res = await axios.get(`${API_URL}/product/${id}`);
+      await new Promise((resolve, reject) => setTimeout(resolve, 2000));
+      dispatch(loadSingleProduct(res.data));
+      dispatch(endRequest());
+    } catch (e) {
+      dispatch(errorRequest(e.message));
     }
   };
 };
