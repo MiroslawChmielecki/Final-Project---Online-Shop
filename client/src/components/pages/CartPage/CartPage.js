@@ -1,9 +1,10 @@
 import React from "react";
-import SingleProduct from "../../features/SingleProduct/SingleProductContainer";
+import Cart from "../../features/Cart/CartContainer";
 
 const CartPage = () => (
   <div>
-    <p>Cart Page</p>
+    <p>Your order</p>
+    <Cart />
   </div>
 );
 

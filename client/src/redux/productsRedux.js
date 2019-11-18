@@ -7,7 +7,7 @@ const createActionName = name => `app/${reducerName}/${name}`;
 
 // SELECTORS
 export const getProducts = ({ products }) => products.data;
-export const getProductsCounter = ({ products }) => products.data.length;
+export const getProductsCounter = ({ products }) => products.amount;
 export const getRequest = ({ products }) => products.request;
 export const getSingleProduct = ({ products }) => products.singleProduct;
 export const getPages = ({ products }) =>
@@ -24,6 +24,9 @@ export const getProductsSorting = ({ products }) => {
   return sortingProducts;
 };
 
+export const getCart = ({ products }) => products.cart;
+export const getFullPrice = ({ products }) => products.fullPrice;
+
 //ACTIONS
 export const LOAD_PRODUCTS = createActionName("LOAD_PRODUCTS");
 export const START_REQUEST = createActionName("START_REQUEST");
@@ -33,6 +36,10 @@ export const LOAD_SINGLE_PRODUCT = createActionName("LOAD_SINGLE_PRODUCT");
 export const RESET_REQUEST = createActionName("RESET_REQUEST");
 export const LOAD_PRODUCTS_PAGE = createActionName("LOAD_PRODUCTS_PAGE");
 export const SORTING_OPTIONS = createActionName("SORTING_OPTIONS");
+export const ADD_TO_CART = createActionName("ADD_TO_CART");
+export const QUANTITY_PLUS = createActionName("QUANTITY_PLUS");
+export const QUANTITY_MINUS = createActionName("QUANTITY_MINUS");
+export const CALCULATE_PRICE = createActionName("CALCULATE_PRICE");
 
 //ACTIONS CREATORS
 export const loadProducts = payload => ({ payload, type: LOAD_PRODUCTS });
@@ -49,6 +56,10 @@ export const loadProductsByPage = payload => ({
   type: LOAD_PRODUCTS_PAGE
 });
 export const sortingOptions = payload => ({ payload, type: SORTING_OPTIONS });
+export const addToCart = payload => ({ payload, type: ADD_TO_CART });
+export const quantityPlus = id => ({ id, type: QUANTITY_PLUS });
+export const quantityMinus = id => ({ id, type: QUANTITY_MINUS });
+export const calculatePrice = () => ({ type: CALCULATE_PRICE });
 
 /* INITIAL STATE */
 
@@ -65,7 +76,8 @@ const initialState = {
   amount: 0,
   productsPerPage: 6,
   presentPage: 1,
-  productsPage: 1
+  cart: [],
+  fullPrice: 0
 };
 
 /* REDUCER */
@@ -110,6 +122,46 @@ export default function reducer(statePart = initialState, action = {}) {
         key: action.payload.key,
         direction: action.payload.direction
       };
+
+    case ADD_TO_CART:
+      const addedProduct = action.payload;
+      addedProduct.quantity += 1;
+      return {
+        ...statePart,
+        cart: statePart.cart.concat(addedProduct)
+      };
+
+    case QUANTITY_PLUS:
+      const productPlus = statePart.cart.find(el => el.id === action.id);
+      productPlus.quantity += 1;
+      const plusCartUpdate = statePart.cart.map(el =>
+        el.id === action.id ? productPlus : el
+      );
+      return { ...statePart, cart: plusCartUpdate };
+    case QUANTITY_MINUS:
+      const productMinus = statePart.cart.find(el => el.id === action.id);
+      productMinus.quantity -= 1;
+      const minusCartUpdate = statePart.cart.map(el =>
+        el.id === action.id ? productMinus : el
+      );
+      return {
+        ...statePart,
+        cart: minusCartUpdate
+      };
+
+    case CALCULATE_PRICE:
+      let summaryPrices;
+      if (statePart.cart.length !== 0) {
+        const Prices = statePart.cart.map(el => el.price * el.quantity);
+        summaryPrices = Prices.reduce((x, y) => x + y);
+      } else {
+        summaryPrices = 0;
+      }
+      return {
+        ...statePart,
+        fullPrice: summaryPrices
+      };
+
     default:
       return statePart;
   }

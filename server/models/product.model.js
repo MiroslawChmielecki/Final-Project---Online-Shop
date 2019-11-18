@@ -7,7 +7,8 @@ const Product = new Schema({
   tag: { type: "String", required: false },
   img: { type: "Object", required: true },
   description: { type: "String", required: true },
-  price: { type: "Number", required: true }
+  price: { type: "Number", required: true },
+  qty: { type: "Number", required: true }
 });
 
 module.exports = mongoose.model("Product", Product);

@@ -8,7 +8,8 @@ const loadTestData = async () => {
       img: { src: "../client/src/images/productsImages/soccerBall1.jpg" },
       description: "Lorem ipsum dipsum tipsum nipsum eliksipsum",
       price: 33,
-      tag: "nowość"
+      tag: "nowość",
+      quantity: 0
     },
     {
       id: "1122sfgdf",
@@ -16,7 +17,8 @@ const loadTestData = async () => {
       img: { src: "../client/src/images/productsImages/soccerBall2.jpg" },
       description: "Lorem ipsum dipsum tipsum nipsum eliksipsum",
       price: 45,
-      tag: "nowość"
+      tag: "nowość",
+      quantity: 0
     },
     {
       id: "3",
@@ -24,7 +26,8 @@ const loadTestData = async () => {
       img: { src: "../client/src/images/productsImages/soccerBall3.jpg" },
       description: "Lorem ipsum dipsum tipsum nipsum eliksipsum",
       price: 65,
-      tag: "nowość"
+      tag: "nowość",
+      quantity: 0
     },
     {
       id: "4",
@@ -32,7 +35,8 @@ const loadTestData = async () => {
       img: { src: "../client/src/images/productsImages/soccerBall4.jpg" },
       description: "Lorem ipsum dipsum tipsum nipsum eliksipsum",
       price: 56,
-      tag: "nowość"
+      tag: "nowość",
+      quantity: 0
     },
     {
       id: "5",
@@ -40,7 +44,8 @@ const loadTestData = async () => {
       img: { src: "../client/src/images/productsImages/soccerGloves1.jpg" },
       description: "Lorem ipsum dipsum tipsum nipsum eliksipsum",
       price: 78,
-      tag: "nowość"
+      tag: "nowość",
+      quantity: 0
     },
     {
       id: "6",
@@ -48,7 +53,8 @@ const loadTestData = async () => {
       img: { src: "../client/src/images/productsImages/soccerGloves2.jpg" },
       description: "Lorem ipsum dipsum tipsum nipsum eliksipsum",
       price: 26,
-      tag: "nowość"
+      tag: "nowość",
+      quantity: 0
     },
     {
       id: "7",
@@ -56,7 +62,8 @@ const loadTestData = async () => {
       img: { src: "../client/src/images/productsImages/soccerGloves3.jpg" },
       description: "Lorem ipsum dipsum tipsum nipsum eliksipsum",
       price: 55,
-      tag: "nowość"
+      tag: "nowość",
+      quantity: 0
     }
   ];
 
