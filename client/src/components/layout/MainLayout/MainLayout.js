@@ -5,10 +5,12 @@ import Navbar from "../../features/NavBar/NavbarContainer";
 
 export class MainLayout extends React.Component {
   render() {
+    const { children } = this.props;
+
     return (
       <PageContainer>
         <Navbar />
-        {this.props.children}
+        {children}
         <Footer />
       </PageContainer>
     );

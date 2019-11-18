@@ -6,14 +6,18 @@ import { PropTypes } from "prop-types";
 
 import "./BasketIcon.scss";
 
-const BasketIcon = props => (
-  <div className="basketQuantity">
-    <Link to="/cart">
-      <FontAwesomeIcon icon={faShoppingBasket} size="3x" />
-      <p className="basketQuantityDisplay">{props.productsInBasket}</p>
-    </Link>
-  </div>
-);
+const BasketIcon = props => {
+  const { productsInBasket } = props;
+
+  return (
+    <div className="basketQuantity">
+      <Link to="/cart">
+        <FontAwesomeIcon icon={faShoppingBasket} size="3x" />
+        <p className="basketQuantityDisplay">{productsInBasket}</p>
+      </Link>
+    </div>
+  );
+};
 
 BasketIcon.propTypes = {
   productsInBasket: PropTypes.number.isRequired

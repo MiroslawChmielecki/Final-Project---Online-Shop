@@ -40,6 +40,7 @@ export const ADD_TO_CART = createActionName("ADD_TO_CART");
 export const QUANTITY_PLUS = createActionName("QUANTITY_PLUS");
 export const QUANTITY_MINUS = createActionName("QUANTITY_MINUS");
 export const CALCULATE_PRICE = createActionName("CALCULATE_PRICE");
+export const REMOVE_FROM_BASKET = createActionName("REMOVE_FROM_BASKET");
 
 //ACTIONS CREATORS
 export const loadProducts = payload => ({ payload, type: LOAD_PRODUCTS });
@@ -60,6 +61,10 @@ export const addToCart = payload => ({ payload, type: ADD_TO_CART });
 export const quantityPlus = id => ({ id, type: QUANTITY_PLUS });
 export const quantityMinus = id => ({ id, type: QUANTITY_MINUS });
 export const calculatePrice = () => ({ type: CALCULATE_PRICE });
+export const removeFromBasket = payload => ({
+  payload,
+  type: REMOVE_FROM_BASKET
+});
 
 /* INITIAL STATE */
 
@@ -160,6 +165,14 @@ export default function reducer(statePart = initialState, action = {}) {
       return {
         ...statePart,
         fullPrice: summaryPrices
+      };
+    case REMOVE_FROM_BASKET:
+      const updateBasket = statePart.cart.filter(
+        elem => elem.id !== action.payload
+      );
+      return {
+        ...statePart,
+        cart: updateBasket
       };
 
     default:

@@ -5,23 +5,24 @@ import { PropTypes } from "prop-types";
 import PlusMinusProducts from "../../common/PlusMinusProducts/PlusMinusProducts";
 
 const CartProduct = props => {
-  const { products, plusProducts, minusProducts } = props;
+  const { products, plusProducts, minusProducts, handleRemoveProduct } = props;
+  const { name, description, price } = props.products;
 
   return (
     <div>
       <Link to={"product/" + products.id}>
         <img alt="item" src={products.img.src} />
       </Link>
-      <h4>{products.name}</h4>
-      <p>{products.description}</p>
-      <p md={2}>${products.price}</p>
+      <h4>{name}</h4>
+      <p>{description}</p>
+      <p md={2}>${price}</p>
       <p>
         <PlusMinusProducts
           products={products}
           minusProducts={minusProducts}
           plusProducts={plusProducts}
+          removeProduct={handleRemoveProduct}
         />
-        <button>usuń z koszyka</button>
       </p>
     </div>
   );
@@ -30,7 +31,8 @@ const CartProduct = props => {
 CartProduct.propTypes = {
   products: PropTypes.object.isRequired,
   minusProducts: PropTypes.func.isRequired,
-  plusProducts: PropTypes.func.isRequired
+  plusProducts: PropTypes.func.isRequired,
+  handleRemoveProduct: PropTypes.func.isRequired
 };
 
 export default CartProduct;

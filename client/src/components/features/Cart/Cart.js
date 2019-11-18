@@ -23,8 +23,15 @@ class Cart extends React.Component {
     this.setState({ page: pageNumber });
   };
 
+  handleRemoveProduct = id => {
+    const { removeFromBasket, calculatePrice } = this.props;
+    removeFromBasket(id);
+    calculatePrice();
+  };
+
   render() {
     const { cart, price } = this.props;
+    const { minusCounter, plusCounter, handleRemoveProduct } = this;
 
     return (
       <div>
@@ -35,13 +42,14 @@ class Cart extends React.Component {
             cart.map(el => (
               <CartProduct
                 key={uuid()}
-                minusProducts={this.minusCounter}
-                plusProducts={this.plusCounter}
+                minusProducts={minusCounter}
+                plusProducts={plusCounter}
                 products={el}
+                handleRemoveProduct={handleRemoveProduct}
               />
             ))
           ) : (
-            <Alert color="danger">Your shopping cart is empty!</Alert>
+            <Alert color="danger">Your basket is empty!</Alert>
           )}
         </div>
 
@@ -59,7 +67,9 @@ Cart.propTypes = {
   minusProducts: PropTypes.func.isRequired,
   plusProducts: PropTypes.func.isRequired,
   cart: PropTypes.array.isRequired,
-  price: PropTypes.number.isRequired
+  price: PropTypes.number.isRequired,
+  calculatePrice: PropTypes.func.isRequired,
+  removeFromBasket: PropTypes.func.isRequired
 };
 
 export default Cart;

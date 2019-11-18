@@ -12,16 +12,22 @@ class PlusMinusProducts extends React.Component {
     plusProducts(products.id);
   };
 
+  removeProduct = () => {
+    const { removeProduct, products } = this.props;
+    removeProduct(products.id);
+  };
+
   render() {
     const { products } = this.props;
-
+    const { minus, plus, removeProduct } = this;
     return (
       <div>
         <div className="items-qty">
-          <button onClick={this.minus}>-</button>
+          <button onClick={minus}>-</button>
           <p>{products.quantity}</p>
-          <button onClick={this.plus}>+</button>
+          <button onClick={plus}>+</button>
         </div>
+        <button onClick={removeProduct}>Remove product from basket</button>
       </div>
     );
   }
@@ -30,7 +36,8 @@ class PlusMinusProducts extends React.Component {
 PlusMinusProducts.propTypes = {
   products: PropTypes.object.isRequired,
   plusProducts: PropTypes.func.isRequired,
-  minusProducts: PropTypes.func.isRequired
+  minusProducts: PropTypes.func.isRequired,
+  removeProduct: PropTypes.func.isRequired
 };
 
 export default PlusMinusProducts;

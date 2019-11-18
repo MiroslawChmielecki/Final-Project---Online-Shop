@@ -12,7 +12,7 @@ class SingleProduct extends React.Component {
     loadProducts(match.params.id);
   }
 
-  handleAddToCart = () => {
+  handleAddToBasket = () => {
     const {
       addToCart,
       products,
@@ -30,6 +30,7 @@ class SingleProduct extends React.Component {
   render() {
     const { products, request } = this.props;
     const { pending, success, error } = request;
+    const { handleAddToBasket } = this;
 
     if (pending === false && success === true && products.length > 0)
       return (
@@ -40,7 +41,7 @@ class SingleProduct extends React.Component {
           <p>{products[0].price}$</p>
           <p>{products[0].description}</p>
           <img src={products[0].img.src} alt="item" />
-          <Button onClick={this.handleAddToCart} color="primary">
+          <Button onClick={handleAddToBasket} color="primary">
             Add to cart
           </Button>
         </div>
