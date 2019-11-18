@@ -2,6 +2,7 @@ import React from "react";
 import uuid from "uuid";
 import { PropTypes } from "prop-types";
 import CartProduct from "./CartProduct";
+import Discount from "../../common/Discount/Discount";
 import Alert from "../../common/Alert/Alert";
 
 import "./Cart.scss";
@@ -29,8 +30,14 @@ class Cart extends React.Component {
     calculatePrice();
   };
 
+  handleDiscount = () => {
+    const { getDiscount, calculatePrice } = this.props;
+    getDiscount();
+    calculatePrice();
+  };
+
   render() {
-    const { cart, price } = this.props;
+    const { cart, price, discountCode, discountStatus } = this.props;
     const { minusCounter, plusCounter, handleRemoveProduct } = this;
 
     return (
@@ -52,9 +59,14 @@ class Cart extends React.Component {
             <Alert color="danger">Your basket is empty!</Alert>
           )}
         </div>
-
         <div>
-          <input placeholder="discount code" />
+          <Discount
+            discountStatus={discountStatus}
+            discountCode={discountCode}
+            handleDiscountCode={this.handleDiscount}
+          />
+        </div>
+        <div>
           <p>Total: ${price.toFixed(2)}</p>
           <button>Summary</button>
         </div>
@@ -69,7 +81,10 @@ Cart.propTypes = {
   cart: PropTypes.array.isRequired,
   price: PropTypes.number.isRequired,
   calculatePrice: PropTypes.func.isRequired,
-  removeFromBasket: PropTypes.func.isRequired
+  removeFromBasket: PropTypes.func.isRequired,
+  discountCode: PropTypes.string.isRequired,
+  getDiscount: PropTypes.func.isRequired,
+  discountStatus: PropTypes.bool.isRequired
 };
 
 export default Cart;

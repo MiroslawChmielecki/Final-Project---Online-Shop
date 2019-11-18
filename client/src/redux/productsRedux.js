@@ -23,9 +23,10 @@ export const getProductsSorting = ({ products }) => {
   });
   return sortingProducts;
 };
-
 export const getCart = ({ products }) => products.cart;
 export const getFullPrice = ({ products }) => products.fullPrice;
+export const getDiscountCode = ({ products }) => products.discountCode;
+export const getDiscountStatus = ({ products }) => products.discountCorrect;
 
 //ACTIONS
 export const LOAD_PRODUCTS = createActionName("LOAD_PRODUCTS");
@@ -41,6 +42,7 @@ export const QUANTITY_PLUS = createActionName("QUANTITY_PLUS");
 export const QUANTITY_MINUS = createActionName("QUANTITY_MINUS");
 export const CALCULATE_PRICE = createActionName("CALCULATE_PRICE");
 export const REMOVE_FROM_BASKET = createActionName("REMOVE_FROM_BASKET");
+export const GET_DISCOUNT = createActionName("GET_DISCOUNT");
 
 //ACTIONS CREATORS
 export const loadProducts = payload => ({ payload, type: LOAD_PRODUCTS });
@@ -65,6 +67,7 @@ export const removeFromBasket = payload => ({
   payload,
   type: REMOVE_FROM_BASKET
 });
+export const getDiscount = () => ({ type: GET_DISCOUNT });
 
 /* INITIAL STATE */
 
@@ -80,9 +83,11 @@ const initialState = {
   direction: "",
   amount: 0,
   productsPerPage: 6,
-  presentPage: 1,
+  //presentPage: 1,
   cart: [],
-  fullPrice: 0
+  fullPrice: 0,
+  discountCode: "PayLessMiroYEE",
+  discountCorrect: false
 };
 
 /* REDUCER */
@@ -157,8 +162,18 @@ export default function reducer(statePart = initialState, action = {}) {
     case CALCULATE_PRICE:
       let summaryPrices;
       if (statePart.cart.length !== 0) {
-        const Prices = statePart.cart.map(el => el.price * el.quantity);
-        summaryPrices = Prices.reduce((x, y) => x + y);
+        const Prices = statePart.cart.map(elem =>
+          elem.product
+            ? elem.price * elem.quantity * 1.15
+            : elem.price * elem.quantity
+        );
+        const PricesReduce = Prices.reduce((x, y) => x + y);
+        summaryPrices = parseFloat(
+          (statePart.discountCorrect
+            ? PricesReduce * statePart.discount
+            : PricesReduce
+          ).toFixed(2)
+        );
       } else {
         summaryPrices = 0;
       }
@@ -173,6 +188,12 @@ export default function reducer(statePart = initialState, action = {}) {
       return {
         ...statePart,
         cart: updateBasket
+      };
+    case GET_DISCOUNT:
+      return {
+        ...statePart,
+        discount: 0.85,
+        discountCorrect: true
       };
 
     default:
