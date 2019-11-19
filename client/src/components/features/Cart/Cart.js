@@ -1,6 +1,7 @@
 import React from "react";
 import uuid from "uuid";
 import { PropTypes } from "prop-types";
+import { Link } from "react-router-dom";
 import CartProduct from "./CartProduct";
 import Discount from "../../common/Discount/Discount";
 import Alert from "../../common/Alert/Alert";
@@ -68,7 +69,12 @@ class Cart extends React.Component {
         </div>
         <div>
           <p>Total: ${price.toFixed(2)}</p>
-          <button>Summary</button>
+          <Link to="/shoppingsummary">
+            <button>Summary</button>
+          </Link>
+          <Link to="/">
+            <button>Continue shopping</button>
+          </Link>
         </div>
       </div>
     );

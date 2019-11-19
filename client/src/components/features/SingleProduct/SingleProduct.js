@@ -1,6 +1,7 @@
 import React from "react";
 import { PropTypes } from "prop-types";
 import { withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import Spinner from "../../common/Spinner/Spinner";
 import Alert from "../../common/Alert/Alert";
@@ -35,7 +36,9 @@ class SingleProduct extends React.Component {
     if (pending === false && success === true && products.length > 0)
       return (
         <div>
-          <button>BUTTON BACK</button>
+          <Link to="/">
+            <button>Continue shopping</button>
+          </Link>
           <h2>{products[0].name}</h2>
           <p>{products[0].tag}</p>
           <p>{products[0].price}$</p>

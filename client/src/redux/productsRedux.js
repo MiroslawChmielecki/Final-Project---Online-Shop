@@ -83,7 +83,7 @@ const initialState = {
   direction: "",
   amount: 0,
   productsPerPage: 6,
-  //presentPage: 1,
+  presentPage: 1,
   cart: [],
   fullPrice: 0,
   discountCode: "PayLessMiroYEE",

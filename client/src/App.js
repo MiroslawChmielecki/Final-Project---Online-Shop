@@ -10,6 +10,7 @@ import ContactPage from "./components/pages/ContactPage/ContactPage";
 import NotFoundPage from "./components/pages/NotFoundPage/NotFoundPage";
 import SingleProduct from "./components/pages/SingleProductPage/SingleProductPage";
 import CartPage from "./components/pages/CartPage/CartPage";
+import ShoppingSummaryPage from "./components/pages/ShoppingSummaryPage/ShoppingSummaryPage";
 
 class App extends React.Component {
   render() {
@@ -23,6 +24,11 @@ class App extends React.Component {
             <Route exact path="/contact" component={ContactPage} />
             <Route exact path="/cart" component={CartPage} />
             <Route exact path="/product/:id" component={SingleProduct} />
+            <Route
+              exact
+              path="/shoppingsummary"
+              component={ShoppingSummaryPage}
+            />
             <Route component={NotFoundPage} />
           </Switch>
         </MainLayout>
