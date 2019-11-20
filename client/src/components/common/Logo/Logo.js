@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import LogoImage from "../../../images/productsImages/MainLogo.jpg";
+import LogoImage from "./MainLogo.jpg";
 
 const Logo = () => (
   <Link to="/">

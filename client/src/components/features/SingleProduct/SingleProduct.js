@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import Spinner from "../../common/Spinner/Spinner";
 import Alert from "../../common/Alert/Alert";
 import Button from "../../common/Button/Button";
+import "./SingleProduct.scss";
 
 class SingleProduct extends React.Component {
   componentDidMount() {
@@ -42,8 +43,8 @@ class SingleProduct extends React.Component {
           <h2>{products[0].name}</h2>
           <p>{products[0].tag}</p>
           <p>{products[0].price}$</p>
+          <img className="product-foto" src={products[0].img.src} alt="item" />
           <p>{products[0].description}</p>
-          <img src={products[0].img.src} alt="item" />
           <Button onClick={handleAddToBasket} color="primary">
             Add to cart
           </Button>

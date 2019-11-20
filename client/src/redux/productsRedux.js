@@ -86,7 +86,7 @@ const initialState = {
   presentPage: 1,
   cart: [],
   fullPrice: 0,
-  discountCode: "PayLessMiroYEE",
+  discountCode: "PayLessFromMiro",
   discountCorrect: false
 };
 

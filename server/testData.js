@@ -3,66 +3,73 @@ const Product = require("./models/product.model");
 const loadTestData = async () => {
   const data = [
     {
-      id: "21sd42sdsaaf",
-      name: "product 1",
-      img: { src: "../client/src/images/productsImages/soccerBall1.jpg" },
-      description: "Lorem ipsum dipsum tipsum nipsum eliksipsum",
-      price: 33,
-      tag: "nowość",
+      id: "1",
+      name: "Soccer ball CLASSIC",
+      img: { src: "../client/public/images/productsImages/soccerBall1.jpg" },
+      description:
+        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
+      price: 33.99,
+      tag: "new",
       quantity: 0
     },
     {
-      id: "1122sfgdf",
-      name: "product 2",
-      img: { src: "../client/src/images/productsImages/soccerBall2.jpg" },
-      description: "Lorem ipsum dipsum tipsum nipsum eliksipsum",
-      price: 45,
-      tag: "nowość",
+      id: "2",
+      name: "Soccer gloves IMPERISHABLE",
+      img: { src: "../client/public/images/productsImages/soccerGloves3.jpg" },
+      description:
+        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
+      price: 49.99,
+      tag: "new",
       quantity: 0
     },
     {
       id: "3",
-      name: "product 3",
-      img: { src: "../client/src/images/productsImages/soccerBall3.jpg" },
-      description: "Lorem ipsum dipsum tipsum nipsum eliksipsum",
-      price: 65,
-      tag: "nowość",
+      name: "Soccer ball FUTURE",
+      img: { src: "../client/public/images/productsImages/soccerBall2.jpg" },
+      description:
+        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
+      price: 45.99,
+      tag: "new",
       quantity: 0
     },
     {
       id: "4",
-      name: "product 4",
-      img: { src: "../client/src/images/productsImages/soccerBall4.jpg" },
-      description: "Lorem ipsum dipsum tipsum nipsum eliksipsum",
-      price: 56,
-      tag: "nowość",
+      name: "Soccer gloves FC",
+      img: { src: "../client/public/images/productsImages/soccerGloves2.jpg" },
+      description:
+        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
+      price: 35.99,
+      tag: "",
       quantity: 0
     },
     {
       id: "5",
-      name: "product 5",
-      img: { src: "../client/src/images/productsImages/soccerGloves1.jpg" },
-      description: "Lorem ipsum dipsum tipsum nipsum eliksipsum",
-      price: 78,
-      tag: "nowość",
+      name: "Soccer ball OLDSCHOOL",
+      img: { src: "../client/public/images/productsImages/soccerBall3.jpg" },
+      description:
+        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
+      price: 49.99,
+      tag: "",
       quantity: 0
     },
     {
       id: "6",
-      name: "product 6",
-      img: { src: "../client/src/images/productsImages/soccerGloves2.jpg" },
-      description: "Lorem ipsum dipsum tipsum nipsum eliksipsum",
-      price: 26,
-      tag: "nowość",
+      name: "Amazing soccer gloves MIRACLE",
+      img: { src: "../client/public/images/productsImages/soccerGloves1.jpg" },
+      description:
+        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
+      price: 29.99,
+      tag: "",
       quantity: 0
     },
     {
       id: "7",
-      name: "product 7",
-      img: { src: "../client/src/images/productsImages/soccerGloves3.jpg" },
-      description: "Lorem ipsum dipsum tipsum nipsum eliksipsum",
-      price: 55,
-      tag: "nowość",
+      name: "Soccer ball TERRANOVA",
+      img: { src: "../client/public/images/productsImages/soccerBall4.jpg" },
+      description:
+        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
+      price: 39.99,
+      tag: "last items",
       quantity: 0
     }
   ];

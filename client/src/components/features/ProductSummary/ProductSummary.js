@@ -12,9 +12,9 @@ export class ProductSummary extends React.Component {
         <Link to={`/product/${id}`}>
           <h3>{name}</h3>
           <p>{tag}</p>
-          <p>{price}</p>
+          <p>{price} €</p>
+          <img className="foto-product" src={img.src} alt="product-foto" />
           <p>{description}</p>
-          <img src={img.src} alt="product-foto" />
         </Link>
       </div>
     );

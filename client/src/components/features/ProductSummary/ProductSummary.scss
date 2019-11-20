@@ -7,6 +7,9 @@
   margin-left: -$base-size;
   transition: 0.2s;
   cursor: pointer;
+  .foto-product {
+    width: 200px;
+  }
 }
 
 .product-summary:hover {
