@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
 import MainLayout from "./components/layout/MainLayout/MainLayout";
 
@@ -15,24 +15,22 @@ import ShoppingSummaryPage from "./components/pages/ShoppingSummaryPage/Shopping
 class App extends React.Component {
   render() {
     return (
-      <BrowserRouter>
-        <MainLayout>
-          <Switch>
-            <Route exact path="/" component={HomePage} />
-            <Route exact path="/faq" component={FaqPage} />
-            <Route exact path="/regulations" component={RegulationsPage} />
-            <Route exact path="/contact" component={ContactPage} />
-            <Route exact path="/cart" component={CartPage} />
-            <Route exact path="/product/:id" component={SingleProduct} />
-            <Route
-              exact
-              path="/shoppingsummary"
-              component={ShoppingSummaryPage}
-            />
-            <Route component={NotFoundPage} />
-          </Switch>
-        </MainLayout>
-      </BrowserRouter>
+      <MainLayout>
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route exact path="/faq" component={FaqPage} />
+          <Route exact path="/regulations" component={RegulationsPage} />
+          <Route exact path="/contact" component={ContactPage} />
+          <Route exact path="/cart" component={CartPage} />
+          <Route exact path="/product/:id" component={SingleProduct} />
+          <Route
+            exact
+            path="/shoppingsummary"
+            component={ShoppingSummaryPage}
+          />
+          <Route component={NotFoundPage} />
+        </Switch>
+      </MainLayout>
     );
   }
 }

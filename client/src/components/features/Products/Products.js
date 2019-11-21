@@ -8,7 +8,7 @@ import Pagination from "../../common/Pagination/Pagination";
 class Products extends React.Component {
   componentDidMount() {
     const { loadProductsByPage, initialPage, productsPerPage } = this.props;
-    loadProductsByPage(initialPage || 1, productsPerPage || 6);
+    loadProductsByPage(initialPage, productsPerPage);
   }
 
   loadProductsPage = page => {
@@ -37,6 +37,17 @@ class Products extends React.Component {
             initialPage={presentPage}
           />
         </div>
+      );
+    else if (
+      pending === false &&
+      success === true &&
+      products.length > 0 &&
+      pagination === false
+    )
+      return (
+        <>
+          <ProductsList products={Products} />
+        </>
       );
     else if (pending === true || success === null) return <Spinner />;
     else if (pending === false && error !== null)
