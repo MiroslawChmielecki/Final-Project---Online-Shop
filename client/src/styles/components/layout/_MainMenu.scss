@@ -1,0 +1,12 @@
+.main-menu {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  .main-menu-item {
+    margin: 0 $base-size;
+    color: lightgrey;
+    font-size: 20px;
+  }
+}

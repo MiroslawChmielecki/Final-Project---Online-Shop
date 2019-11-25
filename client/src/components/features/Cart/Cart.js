@@ -5,8 +5,7 @@ import { Link } from "react-router-dom";
 import CartProduct from "./CartProduct";
 import Discount from "../../common/Discount/Discount";
 import Alert from "../../common/Alert/Alert";
-
-import "./Cart.scss";
+import { Button } from "reactstrap";
 
 class Cart extends React.Component {
   minusCounter = products => {
@@ -42,10 +41,10 @@ class Cart extends React.Component {
     const { minusCounter, plusCounter, handleRemoveProduct } = this;
 
     return (
-      <div>
-        <p>Shopping Cart</p>
+      <div className="cart container">
+        <h1 className="cart-header">Shopping basket</h1>
 
-        <div>
+        <div className="cart-cartProduct">
           {cart.length !== 0 ? (
             cart.map(el => (
               <CartProduct
@@ -57,24 +56,34 @@ class Cart extends React.Component {
               />
             ))
           ) : (
-            <Alert color="danger">Your basket is empty!</Alert>
+            <Alert variant="warning">Your basket is empty!</Alert>
           )}
         </div>
-        <div>
-          <Discount
-            discountStatus={discountStatus}
-            discountCode={discountCode}
-            handleDiscountCode={this.handleDiscount}
-          />
-        </div>
-        <div>
-          <p>Total: ${price.toFixed(2)}</p>
-          <Link to="/shoppingsummary">
-            <button>Summary</button>
-          </Link>
-          <Link to="/">
-            <button>Continue shopping</button>
-          </Link>
+        <div className="cart-discount-summary">
+          <div className="cart-discount">
+            <Discount
+              discountStatus={discountStatus}
+              discountCode={discountCode}
+              handleDiscountCode={this.handleDiscount}
+            />
+          </div>
+          <div className="cart-totalPrice-buttons">
+            <p className="cart-totalPrice">Total: ${price.toFixed(2)}</p>
+            {cart.length !== 0 ? (
+              <Link to="/shoppingsummary">
+                <Button className="cart-summary" color="success">
+                  Summary
+                </Button>
+              </Link>
+            ) : (
+              <Button className="cart-summary-none" color="success"></Button>
+            )}
+            <Link to="/">
+              <Button className="cart-continueshopping" color="secondary">
+                Continue shopping
+              </Button>
+            </Link>
+          </div>
         </div>
       </div>
     );

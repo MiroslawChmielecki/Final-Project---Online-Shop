@@ -7,7 +7,7 @@ const ProductController = require("../controllers/product.controller");
 router.route("/products").get(ProductController.getProducts);
 
 //get single product
-router.route("/product/:id").get(ProductController.getSingleProduct);
+router.route("/products/:id").get(ProductController.getSingleProduct);
 
 // get products by range
 router

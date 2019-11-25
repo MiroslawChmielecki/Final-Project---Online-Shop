@@ -1,5 +1,6 @@
 import React from "react";
 import { PropTypes } from "prop-types";
+import { Button } from "reactstrap";
 
 class PlusMinusProducts extends React.Component {
   minus = () => {
@@ -22,12 +23,23 @@ class PlusMinusProducts extends React.Component {
     const { minus, plus, removeProduct } = this;
     return (
       <div>
-        <div className="items-qty">
-          <button onClick={minus}>-</button>
-          <p>{products.quantity}</p>
-          <button onClick={plus}>+</button>
+        <div className="plusMinusProducts">
+          <button className="plusMinusProducts-minus" onClick={minus}>
+            -
+          </button>
+          <p className="plusMinusProducts-number">{products.quantity}</p>
+          <button className="plusMinusProducts-plus" onClick={plus}>
+            +
+          </button>
         </div>
-        <button onClick={removeProduct}>Remove product from basket</button>
+        <Button
+          className="plusMinusProducts-remove"
+          outline
+          color="warning"
+          onClick={removeProduct}
+        >
+          Remove from basket
+        </Button>
       </div>
     );
   }

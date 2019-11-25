@@ -1,0 +1,10 @@
+.home-page {
+  .home-page-content {
+    display: flex;
+    padding: 50px;
+    .sorting-products {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}

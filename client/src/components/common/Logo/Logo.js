@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import LogoImage from "./MainLogo.jpg";
+import LogoImage from "./logoMiro.jpg";
 
 const Logo = () => (
   <Link to="/">
-    <img src={LogoImage} width="200px" alt="logoMiroSport" />
+    <img src={LogoImage} width="180px" alt="logoMiroSport" />
   </Link>
 );
 

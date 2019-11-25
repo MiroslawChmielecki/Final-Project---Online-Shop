@@ -3,8 +3,6 @@ import PropTypes from "prop-types";
 import { Animated } from "react-animated-css";
 import { MdInfoOutline, MdDone, MdErrorOutline } from "react-icons/md";
 
-import "./Alert.scss";
-
 const Alert = ({ variant = "", children, ...otherProps }) => {
   const icon = () => {
     switch (variant) {
@@ -32,7 +30,7 @@ const Alert = ({ variant = "", children, ...otherProps }) => {
 };
 
 Alert.propTypes = {
-  //variant: PropTypes.string.isRequired,
+  variant: PropTypes.string.isRequired,
   children: PropTypes.string.isRequired
 };
 

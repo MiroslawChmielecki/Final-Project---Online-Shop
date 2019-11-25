@@ -15,9 +15,13 @@ class Footer extends React.Component {
     const { links } = this.state;
 
     return (
-      <footer>
-        <p>All rights reserved © 2019 by Mirosław Chmielecki</p>
-        <MainMenu links={links} />
+      <footer className="footer container-fluid">
+        <div className="container-nav-foot footer-content">
+          <p className="footer-rights">
+            All rights reserved © 2019 by Mirosław Chmielecki
+          </p>
+          <MainMenu links={links} />
+        </div>
       </footer>
     );
   }

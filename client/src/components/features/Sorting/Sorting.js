@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./Sorting.scss";
 
 const Sorting = ({ sortingOptions }) => {
   const handleOnClick = (key, direction) => {
@@ -8,15 +7,34 @@ const Sorting = ({ sortingOptions }) => {
   };
 
   return (
-    <div>
-      <button onClick={() => handleOnClick("name", "asc")}>Nazwa a-z</button>
-      <button onClick={() => handleOnClick("name", "desc")}>Nazwa z-a</button>
-      <button onClick={() => handleOnClick("price", "asc")}>
-        cena rosnąco
-      </button>
-      <button onClick={() => handleOnClick("price", "desc")}>
-        cena malejąco
-      </button>
+    <div className="sorting">
+      <h3 className="sorting-header">Sortuj:</h3>
+      <div className="sorting-options">
+        <p
+          className="sorting-option"
+          onClick={() => handleOnClick("name", "asc")}
+        >
+          Nazwa A-Z
+        </p>
+        <p
+          className="sorting-option"
+          onClick={() => handleOnClick("name", "desc")}
+        >
+          Nazwa Z-A
+        </p>
+        <p
+          className="sorting-option"
+          onClick={() => handleOnClick("price", "asc")}
+        >
+          Cena rosnąco
+        </p>
+        <p
+          className="sorting-option"
+          onClick={() => handleOnClick("price", "desc")}
+        >
+          Cena malejąco
+        </p>
+      </div>
     </div>
   );
 };

@@ -10,7 +10,11 @@ class ProductsCounter extends React.Component {
     const { counter } = this.props;
 
     return (
-      <div>{counter > 0 ? `Products amount: ${counter}` : "No products"}</div>
+      <div className="products-counter">
+        {counter > 0
+          ? `Ilość dostępnych produktów: ${counter}`
+          : "Brak produktów"}
+      </div>
     );
   }
 }

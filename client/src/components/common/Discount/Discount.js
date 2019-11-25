@@ -1,6 +1,7 @@
 import React from "react";
 import { PropTypes } from "prop-types";
 import Alert from "../Alert/Alert";
+import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 
 class Discount extends React.Component {
   constructor(props) {
@@ -38,24 +39,32 @@ class Discount extends React.Component {
 
     if (!discountStatus && invalidCode)
       return (
-        <Alert onClick={handleInfoAlert} color="danger">
+        <Alert onClick={handleInfoAlert} variant="error">
           Wrong code !! Try again !!
         </Alert>
       );
     else if (!discountStatus)
       return (
-        <div>
-          <input
-            placeholder="discount code"
-            value={value}
-            onChange={handleChange}
-          ></input>
+        <Form inline>
+          <FormGroup>
+            <Label for="examplePassword"></Label>
+            <Input
+              id="code"
+              onChange={handleChange}
+              value={value}
+              placeholder="discount code"
+            />
+          </FormGroup>
 
-          <button onClick={handleSubmit}>Confirm code !!</button>
-        </div>
+          <Button color="primary" onClick={handleSubmit}>
+            Confirm
+          </Button>
+        </Form>
       );
     else if (discountStatus)
-      return <Alert color="success">Code correct !! You pay 15% less !!</Alert>;
+      return (
+        <Alert variant="success">Code correct !! You pay 15% less !!</Alert>
+      );
   }
 }
 

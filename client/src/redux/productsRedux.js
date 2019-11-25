@@ -221,7 +221,7 @@ export const loadSingleProductRequest = id => {
   return async dispatch => {
     dispatch(startRequest());
     try {
-      let res = await axios.get(`${API_URL}/product/${id}`);
+      let res = await axios.get(`${API_URL}/products/${id}`);
       await new Promise((resolve, reject) => setTimeout(resolve, 2000));
       dispatch(loadSingleProduct(res.data));
       dispatch(endRequest());

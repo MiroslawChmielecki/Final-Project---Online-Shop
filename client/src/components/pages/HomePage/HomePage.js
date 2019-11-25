@@ -4,10 +4,14 @@ import Sorting from "../../features/Sorting/SortingContainer";
 import ProductsCounter from "../../features/ProductsCounter/ProductsCounterContainer";
 
 const HomePage = () => (
-  <div>
-    <Sorting />
-    <ProductsCounter />
-    <Products />
+  <div className="home-page container-fluid">
+    <div className="container home-page-content">
+      <div className="sorting-products">
+        <Sorting />
+        <ProductsCounter />
+      </div>
+      <Products />
+    </div>
   </div>
 );
 

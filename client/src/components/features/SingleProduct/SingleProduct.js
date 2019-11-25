@@ -5,8 +5,9 @@ import { Link } from "react-router-dom";
 
 import Spinner from "../../common/Spinner/Spinner";
 import Alert from "../../common/Alert/Alert";
-import Button from "../../common/Button/Button";
-import "./SingleProduct.scss";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Button } from "reactstrap";
+import { Badge } from "reactstrap";
 
 class SingleProduct extends React.Component {
   componentDidMount() {
@@ -36,25 +37,41 @@ class SingleProduct extends React.Component {
 
     if (pending === false && success === true && products.length > 0)
       return (
-        <div>
-          <Link to="/">
-            <button>Continue shopping</button>
-          </Link>
-          <h2>{products[0].name}</h2>
-          <p>{products[0].tag}</p>
-          <p>{products[0].price}$</p>
-          <img className="product-foto" src={products[0].img.src} alt="item" />
-          <p>{products[0].description}</p>
-          <Button onClick={handleAddToBasket} color="primary">
-            Add to cart
-          </Button>
+        <div className="singleProduct container">
+          <div className="singleProduct-contShop">
+            <Link to="/">
+              <Button color="secondary">Continue shopping</Button>
+            </Link>
+          </div>
+          <div className="singleProduct-cart">
+            <div className="singleProduct-foto col-4">
+              <img
+                className="singleProduct-image"
+                src={products[0].img.src}
+                alt="item"
+              />
+            </div>
+            <div className="singleProduct-info col-8">
+              <Badge color="info" className="singleProduct-tag">
+                {products[0].tag}
+              </Badge>
+              <h2 className="singleProduct-name">{products[0].name}</h2>
+              <p className="singleProduct-description">
+                {products[0].description}
+              </p>
+              <p className="singleProduct-price">{products[0].price}$</p>
+              <Button onClick={handleAddToBasket} color="success">
+                Add to cart
+              </Button>
+            </div>
+          </div>
         </div>
       );
     else if (pending === true || success === null) return <Spinner />;
     else if (pending === false && error !== null)
-      return <Alert color="danger">{error}</Alert>;
+      return <Alert variant="danger">{error}</Alert>;
     else if (pending === false && success === true && products.length === 0)
-      return <Alert color="info">- no products -</Alert>;
+      return <Alert variant="info">- no products -</Alert>;
   }
 }
 

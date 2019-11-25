@@ -4,7 +4,7 @@ import { PropTypes } from "prop-types";
 import ProductSummary from "../ProductSummary/ProductSummary";
 
 const ProductsList = ({ products }) => (
-  <div>
+  <div className="products-list">
     {products.map(product => (
       <ProductSummary key={product.id} {...product} />
     ))}
@@ -17,8 +17,8 @@ ProductsList.propTypes = {
       id: PropTypes.string.isRequired,
       tag: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
-      price: PropTypes.number.isRequired,
-      description: PropTypes.string.isRequired
+      price: PropTypes.number.isRequired
+      //description: PropTypes.string.isRequired
     })
   )
 };

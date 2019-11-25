@@ -3,7 +3,6 @@ import Logo from "../../common/Logo/Logo";
 import MainMenu from "../../layout/MainMenu/MainMenu";
 import BasketIcon from "../../common/BasketIcon/BasketIcon";
 import { PropTypes } from "prop-types";
-import "./Navbar.scss";
 
 class NavBar extends React.Component {
   state = {
@@ -20,10 +19,12 @@ class NavBar extends React.Component {
     const { cart } = this.props;
 
     return (
-      <nav className="navbar">
-        <Logo />
-        <MainMenu links={links} />
-        <BasketIcon productsInBasket={cart.length} />
+      <nav className="navbar container-fluid">
+        <div className="container-nav-foot navbar-content">
+          <Logo />
+          <MainMenu links={links} />
+          <BasketIcon productsInBasket={cart.length} />
+        </div>
       </nav>
     );
   }

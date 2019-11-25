@@ -10,7 +10,7 @@ export class MainLayout extends React.Component {
     return (
       <PageContainer>
         <Navbar />
-        {children}
+        <div className="children-style">{children}</div>
         <Footer />
       </PageContainer>
     );

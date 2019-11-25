@@ -1,0 +1,13 @@
+.navbar {
+  min-height: 120px;
+  background-color: black;
+  box-shadow: 0px 15px 10px -15px black;
+  margin: 0;
+
+  .navbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+}

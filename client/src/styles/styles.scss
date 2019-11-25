@@ -1,0 +1,43 @@
+@import "./variables";
+@import "./mixins.scss";
+@import "./normalize";
+@import "./layout";
+@import "./global-styles";
+
+//COMPONENTS-COMMON
+@import "./components/common/Alert";
+@import "./components/common/BasketIcon";
+@import "./components/common/Button";
+@import "./components/common/Discount";
+@import "./components/common/Logo";
+@import "./components/common/Pagination";
+@import "./components/common/PlusMinusProducts";
+@import "./components/common/Spinner";
+
+//COMPONENTS-FEATURES
+@import "./components/features/Cart";
+@import "./components/features/CartProduct.scss";
+@import "./components/features/Footer";
+@import "./components/features/NavBar";
+@import "./components/features/Products";
+@import "./components/features/ProductsCounter";
+@import "./components/features/ProductsList";
+@import "./components/features/ProductSummary";
+@import "./components/features/ShoppingSummary";
+@import "./components/features/SingleProduct";
+@import "./components/features/Sorting";
+
+//COMPONENTS-LAYOUT
+@import "./components/layout/MainLayout";
+@import "./components/layout/MainMenu";
+@import "./components/layout/PageContainer";
+
+//COMPONENTS-PAGES
+@import "./components/pages/CartPage";
+@import "./components/pages/ContactPage";
+@import "./components/pages/FaqPage";
+@import "./components/pages/HomePage";
+@import "./components/pages/NotFoundPage";
+@import "./components/pages/RegulationsPage";
+@import "./components/pages/ShoppingSummaryPage";
+@import "./components/pages/SingleProductPage";
