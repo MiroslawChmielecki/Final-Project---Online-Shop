@@ -23,6 +23,7 @@ export const getProductsSorting = ({ products }) => {
   });
   return sortingProducts;
 };
+
 export const getCart = ({ products }) => products.cart;
 export const getFullPrice = ({ products }) => products.fullPrice;
 export const getDiscountCode = ({ products }) => products.discountCode;
@@ -37,6 +38,7 @@ export const LOAD_SINGLE_PRODUCT = createActionName("LOAD_SINGLE_PRODUCT");
 export const RESET_REQUEST = createActionName("RESET_REQUEST");
 export const LOAD_PRODUCTS_PAGE = createActionName("LOAD_PRODUCTS_PAGE");
 export const SORTING_OPTIONS = createActionName("SORTING_OPTIONS");
+
 export const ADD_TO_CART = createActionName("ADD_TO_CART");
 export const QUANTITY_PLUS = createActionName("QUANTITY_PLUS");
 export const QUANTITY_MINUS = createActionName("QUANTITY_MINUS");
@@ -59,6 +61,7 @@ export const loadProductsByPage = payload => ({
   type: LOAD_PRODUCTS_PAGE
 });
 export const sortingOptions = payload => ({ payload, type: SORTING_OPTIONS });
+
 export const addToCart = payload => ({ payload, type: ADD_TO_CART });
 export const quantityPlus = id => ({ id, type: QUANTITY_PLUS });
 export const quantityMinus = id => ({ id, type: QUANTITY_MINUS });

@@ -1,5 +1,8 @@
 .products {
   width: 70%;
+  .products-modal {
+    text-align: center;
+  }
   .products-pagination {
     display: flex;
     justify-content: flex-end;

@@ -1,0 +1,33 @@
+.shopping-summary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .shopping-summary-table {
+    width: 80%;
+    .nameInTable {
+      text-transform: capitalize;
+    }
+  }
+  .shoppingSummary-underTable {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    .shoppingSummary-underTable-desc {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      font-size: 18px;
+    }
+    .shoppingSummary-underTable-price {
+      font-size: 25px;
+      font-weight: bold;
+      color: rgb(23, 162, 184);
+    }
+    .shoppingSummary-buttonBuy {
+      margin: 20px;
+      font-size: 25px;
+    }
+  }
+}

@@ -4,8 +4,7 @@ import { PropTypes } from "prop-types";
 import uuid from "uuid";
 import { Table } from "reactstrap";
 import Alert from "../../common/Alert/Alert";
-
-import "./ShoppingSummary.scss";
+import { Button } from "reactstrap";
 
 const ShoppingSummary = props => {
   const { cart, request, price } = props;
@@ -13,36 +12,42 @@ const ShoppingSummary = props => {
 
   if (pending === false && success === true && cart.length > 0)
     return (
-      <div>
+      <div className="shopping-summary">
         <h1>Order summary</h1>
-
-        <Table responsive>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Price</th>
-              <th>Quantity</th>
-              <th>Total price</th>
-            </tr>
-          </thead>
-          <tbody>
-            {cart.map(el => (
-              <tr key={uuid()}>
-                <td>{el.name}</td>
-                <td>{el.price}$</td>
-                <td>{el.quantity}</td>
-                <td>{(el.price * el.quantity).toFixed(2)}$</td>
+        <div className="shopping-summary-table">
+          <Table bordered dark responsive>
+            <thead>
+              <tr>
+                <th scope="row">Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total price</th>
               </tr>
-            ))}
-          </tbody>
-        </Table>
-
-        <div className="summary-footer">
-          <p>Final price: {price}$</p>
+            </thead>
+            <tbody>
+              {cart.map(el => (
+                <tr key={uuid()}>
+                  <td className="nameInTable">{el.name}</td>
+                  <td>{el.price}$</td>
+                  <td>{el.quantity}</td>
+                  <td>{(el.price * el.quantity).toFixed(2)}$</td>
+                </tr>
+              ))}
+            </tbody>
+          </Table>
+        </div>
+        <div className="shoppingSummary-underTable">
+          <p className="shoppingSummary-underTable-desc">
+            <span>Cena końcowa</span>
+            <span className="shoppingSummary-underTable-price">{price}$</span>
+          </p>
 
           <Link to="/">
-            <button>Continue shopping</button>
+            <Button color="secondary">Continue shopping</Button>
           </Link>
+          <Button className="shoppingSummary-buttonBuy" color="success">
+            Kup teraz
+          </Button>
         </div>
       </div>
     );

@@ -4,6 +4,7 @@ import ProductsList from "../ProductsList/ProductsList";
 import Spinner from "../../common/Spinner/Spinner";
 import Alert from "../../common/Alert/Alert";
 import Pagination from "../../common/Pagination/Pagination";
+import DiscountModal from "../../common/DiscountModal/DiscountModal";
 
 class Products extends React.Component {
   componentDidMount() {
@@ -29,6 +30,9 @@ class Products extends React.Component {
     )
       return (
         <div className="products">
+          <div className="products-modal">
+            <DiscountModal />
+          </div>
           <ProductsList products={products} />
           <div className="products-pagination">
             <Pagination
