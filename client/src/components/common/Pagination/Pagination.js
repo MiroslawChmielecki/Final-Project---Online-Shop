@@ -2,9 +2,12 @@ import React from "react";
 import { PropTypes } from "prop-types";
 
 class Pagination extends React.Component {
-  state = {
-    presentPage: this.props.initialPage || 1
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      presentPage: this.props.initialPage || 1
+    };
+  }
 
   changePage = newPage => {
     const { onPageChange } = this.props;
