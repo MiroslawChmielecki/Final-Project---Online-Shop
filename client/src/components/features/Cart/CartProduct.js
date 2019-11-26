@@ -13,17 +13,19 @@ const CartProduct = props => {
 
   return (
     <div className="cartProduct">
-      <div className="cartProduct-foto col-4">
+      <div className="cartProduct-foto col-lg-4 col-xl-4 col-md-12 col-sm-12 col-xs-12">
         <img className="cartProduct-img" alt="item" src={products.img.src} />
       </div>
 
-      <div className="cartProduct-info col-4">
+      <div className="cartProduct-info col-lg-4 col-xl-4 col-md-12 col-sm-12 col-xs-12">
         <h4 className="cartProduct-name">{name}</h4>
         <p className="cartProduct-description">{newShortContent}</p>
       </div>
 
-      <p className="cartProduct-price col-1">{price}€</p>
-      <div className="cartProduct-plusMinus col-3">
+      <p className="cartProduct-price col-lg-2 col-xl-2 col-md-12 col-sm-12 col-xs-12">
+        {price}€
+      </p>
+      <div className="cartProduct-plusMinus col-lg-2 col-xl-2 col-md-12 col-sm-12 col-xs-12">
         <PlusMinusProducts
           products={products}
           minusProducts={minusProducts}

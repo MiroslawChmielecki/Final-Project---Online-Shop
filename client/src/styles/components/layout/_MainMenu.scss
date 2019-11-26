@@ -4,9 +4,17 @@
   list-style-type: none;
   padding: 0;
   margin: 0;
+  @include respond-to("extra-small") {
+    display: flex;
+    flex-direction: column;
+  }
+
   .main-menu-item {
-    margin: 0 $base-size;
+    margin: 0 10px;
     color: lightgrey;
     font-size: 20px;
+    @include respond-to("medium") {
+      font-size: 15px;
+    }
   }
 }

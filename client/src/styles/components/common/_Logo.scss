@@ -1,0 +1,7 @@
+.logo {
+  .logoImage {
+    @include respond-to("extra-small") {
+      width: 100px;
+    }
+  }
+}

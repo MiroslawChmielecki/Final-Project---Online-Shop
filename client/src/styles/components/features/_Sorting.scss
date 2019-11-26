@@ -3,10 +3,16 @@
   flex-direction: column;
   margin-bottom: 30px;
   margin-top: 60px;
+  @include respond-to("medium") {
+    margin: 0;
+  }
 
   .sorting-header {
     color: rgb(86, 85, 41);
     font-size: 20px;
+    @include respond-to("medium") {
+      font-size: 20px;
+    }
   }
 
   .sorting-options {
@@ -17,6 +23,10 @@
       &:hover {
         cursor: pointer;
         color: black;
+      }
+      @include respond-to("medium") {
+        margin: 10px 5px;
+        font-size: 15px;
       }
     }
   }

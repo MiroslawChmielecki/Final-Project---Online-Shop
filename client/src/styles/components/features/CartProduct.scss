@@ -2,6 +2,15 @@
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid #ddd;
+  @media (max-width: 991.98px) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  @include respond-to("medium") {
+    padding: 20px 0;
+  }
+
   .cartProduct-foto {
     display: flex;
     justify-content: center;
@@ -11,6 +20,10 @@
     }
   }
   .cartProduct-info {
+    text-align: center;
+    @include respond-to("medium") {
+      padding: 0;
+    }
     .cartProduct-name {
       text-transform: capitalize;
       font-size: 25px;

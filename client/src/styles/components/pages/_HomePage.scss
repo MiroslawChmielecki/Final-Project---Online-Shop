@@ -2,9 +2,16 @@
   .home-page-content {
     display: flex;
     padding: 50px;
-    .sorting-products {
+    @include respond-to("medium") {
+      flex-direction: column;
+      align-items: center;
+    }
+    .home-page-sorting-products {
       display: flex;
       flex-direction: column;
+      @include respond-to("medium") {
+        margin-bottom: 20px;
+      }
     }
   }
 }

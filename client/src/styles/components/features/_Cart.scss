@@ -1,6 +1,9 @@
 .cart {
   border: 1px solid #ddd;
   margin-top: 20px;
+  @include respond-to("medium") {
+    padding: 0 10px;
+  }
   .cart-header {
     text-align: center;
     margin: 0;

@@ -20,7 +20,9 @@ class Footer extends React.Component {
           <p className="footer-rights">
             Wszystkie prawa zastrzeżone © 2019 Mirosław Chmielecki
           </p>
-          <MainMenu links={links} />
+          <div className="footer-links">
+            <MainMenu links={links} />
+          </div>
         </div>
       </footer>
     );

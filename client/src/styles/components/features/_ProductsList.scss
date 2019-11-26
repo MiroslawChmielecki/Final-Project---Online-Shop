@@ -1,5 +1,9 @@
 .products-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-end;
+  justify-content: space-around;
+
+  @include respond-to("medium") {
+    justify-content: center;
+  }
 }

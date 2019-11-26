@@ -44,14 +44,14 @@ class SingleProduct extends React.Component {
             </Link>
           </div>
           <div className="singleProduct-cart">
-            <div className="singleProduct-foto col-4">
+            <div className="singleProduct-foto col-4 col-xs-12">
               <img
                 className="singleProduct-image"
                 src={products[0].img.src}
                 alt="item"
               />
             </div>
-            <div className="singleProduct-info col-8">
+            <div className="singleProduct-info col-8 col-xs-12">
               <Badge color="info" className="singleProduct-tag">
                 {products[0].tag}
               </Badge>

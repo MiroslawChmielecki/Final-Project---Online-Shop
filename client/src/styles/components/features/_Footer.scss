@@ -9,8 +9,19 @@
     align-items: center;
     flex-wrap: wrap;
     color: darkgrey;
+    @include respond-to("small") {
+      display: flex;
+      flex-direction: column-reverse;
+    }
     .footer-rights {
       margin: 0;
+      text-align: center;
+      padding: 15px;
+    }
+    .footer-links {
+      @include respond-to("extra-small") {
+        display: none;
+      }
     }
   }
 }

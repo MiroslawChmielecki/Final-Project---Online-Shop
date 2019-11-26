@@ -45,7 +45,7 @@ class Discount extends React.Component {
       );
     else if (!discountStatus)
       return (
-        <Form inline>
+        <Form inline className="formDiscount">
           <FormGroup>
             <Label for="examplePassword"></Label>
             <Input

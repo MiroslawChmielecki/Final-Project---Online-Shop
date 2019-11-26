@@ -6,7 +6,7 @@ import ProductsCounter from "../../features/ProductsCounter/ProductsCounterConta
 const HomePage = () => (
   <div className="home-page container-fluid">
     <div className="container home-page-content">
-      <div className="sorting-products">
+      <div className="home-page-sorting-products">
         <Sorting />
         <ProductsCounter />
       </div>

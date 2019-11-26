@@ -33,7 +33,9 @@ class Products extends React.Component {
           <div className="products-modal">
             <DiscountModal />
           </div>
-          <ProductsList products={products} />
+          <div className="products-productsList">
+            <ProductsList products={products} />
+          </div>
           <div className="products-pagination">
             <Pagination
               pages={pages}
