@@ -2,35 +2,42 @@
   .singleProduct-contShop {
     margin-top: 30px;
   }
+
   .singleProduct-cart {
     display: flex;
     border: 1px solid #ddd;
     margin-top: 40px;
     margin-bottom: 40px;
     padding: 30px;
+
     @include respond-to("extra-small") {
       flex-direction: column;
       align-items: center;
       padding: 30px 0;
     }
+
     .singleProduct-foto {
       @include flex-center;
     }
+
     .singleProduct-info {
       @include respond-to("extra-small") {
         width: 100%;
       }
+
       .singleProduct-tag {
         font-size: 15px;
         @include respond-to("extra-small") {
           display: none;
         }
       }
+
       .singleProduct-name {
         text-transform: capitalize;
         margin: 10px 0;
         text-align: center;
       }
+
       .singleProduct-price {
         color: #17a2b8;
         font-size: 25px;

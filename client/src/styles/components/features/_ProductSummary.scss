@@ -9,20 +9,24 @@
   height: 300px;
   margin: 1rem;
   box-shadow: 0 0 10px 5px lightgrey;
+
   .product-summary-tag {
     position: absolute;
     font-size: 12px;
     top: 5px;
     left: 5px;
   }
+
   .product-summary-foto {
     display: flex;
     justify-content: center;
     margin-top: 50px;
+
     .product-summary-img {
       height: 120px;
     }
   }
+
   .product-summary-name {
     text-transform: capitalize;
     color: black;
@@ -32,6 +36,7 @@
     text-align: center;
     padding: 0 5px;
   }
+
   .product-summary-price {
     margin-top: 30px;
     color: #17a2b8;

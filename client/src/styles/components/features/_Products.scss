@@ -1,11 +1,14 @@
 .products {
   width: 90%;
+
   @include respond-to("medium") {
     width: 100%;
   }
+
   .products-modal {
     text-align: center;
   }
+
   .products-pagination {
     display: flex;
     justify-content: flex-end;

@@ -1,5 +1,5 @@
 import React from "react";
-//import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 
 const Button = ({ variant = "", children, ...otherProps }) => (
   <button {...otherProps} className={`button button--${variant}`}>
@@ -8,7 +8,7 @@ const Button = ({ variant = "", children, ...otherProps }) => (
 );
 
 Button.propTypes = {
-  //variant: PropTypes.string.isRequired,
+  variant: PropTypes.string.isRequired
 };
 
 export default Button;

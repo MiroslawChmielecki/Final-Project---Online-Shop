@@ -39,9 +39,8 @@ const ShoppingSummary = props => {
         <div className="shoppingSummary-underTable">
           <p className="shoppingSummary-underTable-desc">
             <span>Cena końcowa</span>
-            <span className="shoppingSummary-underTable-price">{price}$</span>
+            <span className="shoppingSummary-underTable-price">{price}€</span>
           </p>
-
           <Link to="/">
             <Button color="secondary">Kontynuuj zakupy</Button>
           </Link>

@@ -55,7 +55,6 @@ class Discount extends React.Component {
               placeholder="wpisz kod promocyjny"
             />
           </FormGroup>
-
           <Button color="primary" onClick={handleSubmit}>
             Potwierdź
           </Button>
