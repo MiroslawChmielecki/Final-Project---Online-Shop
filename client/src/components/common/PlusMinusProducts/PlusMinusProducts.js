@@ -38,7 +38,7 @@ class PlusMinusProducts extends React.Component {
           color="warning"
           onClick={removeProduct}
         >
-          Remove from basket
+          Usuń z koszyka
         </Button>
       </div>
     );

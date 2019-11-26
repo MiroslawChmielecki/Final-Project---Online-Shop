@@ -21,7 +21,7 @@ export class ProductSummary extends React.Component {
             />
           </div>
           <h3 className="product-summary-name">{name}</h3>
-          <p className="product-summary-price">{price} €</p>
+          <p className="product-summary-price">{price}€</p>
         </Link>
       </div>
     );

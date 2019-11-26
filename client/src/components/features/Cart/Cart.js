@@ -42,7 +42,7 @@ class Cart extends React.Component {
 
     return (
       <div className="cart container">
-        <h1 className="cart-header">Shopping basket</h1>
+        <h1 className="cart-header">Twój koszyk</h1>
 
         <div className="cart-cartProduct">
           {cart.length !== 0 ? (
@@ -56,7 +56,7 @@ class Cart extends React.Component {
               />
             ))
           ) : (
-            <Alert variant="warning">Your basket is empty!</Alert>
+            <Alert variant="warning">Twój koszyk jest pusty!</Alert>
           )}
         </div>
         <div className="cart-discount-summary">
@@ -68,11 +68,14 @@ class Cart extends React.Component {
             />
           </div>
           <div className="cart-totalPrice-buttons">
-            <p className="cart-totalPrice">Total: ${price.toFixed(2)}</p>
+            <p className="cart-totalPrice">
+              <span className="cart-totalPrice-desc">Cena całkowita:</span>
+              <span>{price.toFixed(2)}€</span>
+            </p>
             {cart.length !== 0 ? (
               <Link to="/shoppingsummary">
                 <Button className="cart-summary" color="success">
-                  Summary
+                  Podsumowanie
                 </Button>
               </Link>
             ) : (
@@ -80,7 +83,7 @@ class Cart extends React.Component {
             )}
             <Link to="/">
               <Button className="cart-continueshopping" color="secondary">
-                Continue shopping
+                Kontynuuj zakupy
               </Button>
             </Link>
           </div>

@@ -25,6 +25,13 @@
         font-size: 25px;
         color: #17a2b8;
         margin: 10px 0 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        .cart-totalPrice-desc {
+          color: black;
+          font-size: 20px;
+        }
       }
       .cart-summary {
         margin-bottom: 20px;

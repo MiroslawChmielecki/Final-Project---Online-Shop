@@ -58,9 +58,9 @@ class Products extends React.Component {
     else if (pending === false && error !== null)
       return <Alert variant="error">{error}</Alert>;
     else if (pending === false && success === true && products.length === 0)
-      return <Alert variant="info">No products</Alert>;
+      return <Alert variant="info">Brak produktów</Alert>;
     else {
-      return <Alert variant="info">Something went wrong....</Alert>;
+      return <Alert variant="info">Coś poszło nie tak....</Alert>;
     }
   }
 }

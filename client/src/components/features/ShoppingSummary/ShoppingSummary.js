@@ -13,24 +13,24 @@ const ShoppingSummary = props => {
   if (pending === false && success === true && cart.length > 0)
     return (
       <div className="shopping-summary">
-        <h1>Order summary</h1>
+        <h1>Twoje zamówienie</h1>
         <div className="shopping-summary-table">
           <Table bordered dark responsive>
             <thead>
               <tr>
-                <th scope="row">Name</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th>Total price</th>
+                <th scope="row">Nazwa</th>
+                <th>Cena</th>
+                <th>Ilość</th>
+                <th>Suma</th>
               </tr>
             </thead>
             <tbody>
               {cart.map(el => (
                 <tr key={uuid()}>
                   <td className="nameInTable">{el.name}</td>
-                  <td>{el.price}$</td>
+                  <td>{el.price}€</td>
                   <td>{el.quantity}</td>
-                  <td>{(el.price * el.quantity).toFixed(2)}$</td>
+                  <td>{(el.price * el.quantity).toFixed(2)}€</td>
                 </tr>
               ))}
             </tbody>
@@ -43,7 +43,7 @@ const ShoppingSummary = props => {
           </p>
 
           <Link to="/">
-            <Button color="secondary">Continue shopping</Button>
+            <Button color="secondary">Kontynuuj zakupy</Button>
           </Link>
           <Button className="shoppingSummary-buttonBuy" color="success">
             Kup teraz
@@ -52,7 +52,7 @@ const ShoppingSummary = props => {
       </div>
     );
   else if (pending || success === null || cart.length === 0)
-    return <Alert variant="error">BASKET EMPTY</Alert>;
+    return <Alert variant="error">Koszyk jest pusty</Alert>;
 };
 
 ShoppingSummary.propTypes = {

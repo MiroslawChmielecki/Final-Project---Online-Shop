@@ -22,7 +22,7 @@ const CartProduct = props => {
         <p className="cartProduct-description">{newShortContent}</p>
       </div>
 
-      <p className="cartProduct-price col-1">${price}</p>
+      <p className="cartProduct-price col-1">{price}€</p>
       <div className="cartProduct-plusMinus col-3">
         <PlusMinusProducts
           products={products}

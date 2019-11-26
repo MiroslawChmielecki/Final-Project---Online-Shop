@@ -40,7 +40,7 @@ class SingleProduct extends React.Component {
         <div className="singleProduct container">
           <div className="singleProduct-contShop">
             <Link to="/">
-              <Button color="secondary">Continue shopping</Button>
+              <Button color="secondary">Kontynuuj zakupy</Button>
             </Link>
           </div>
           <div className="singleProduct-cart">
@@ -59,9 +59,9 @@ class SingleProduct extends React.Component {
               <p className="singleProduct-description">
                 {products[0].description}
               </p>
-              <p className="singleProduct-price">{products[0].price}$</p>
+              <p className="singleProduct-price">{products[0].price}€</p>
               <Button onClick={handleAddToBasket} color="success">
-                Add to cart
+                Dodaj do koszyka
               </Button>
             </div>
           </div>
@@ -71,7 +71,7 @@ class SingleProduct extends React.Component {
     else if (pending === false && error !== null)
       return <Alert variant="danger">{error}</Alert>;
     else if (pending === false && success === true && products.length === 0)
-      return <Alert variant="info">- no products -</Alert>;
+      return <Alert variant="info">- Brak produktów -</Alert>;
   }
 }
 

@@ -40,7 +40,7 @@ class Discount extends React.Component {
     if (!discountStatus && invalidCode)
       return (
         <Alert onClick={handleInfoAlert} variant="error">
-          Wrong code !! Try again !!
+          Zły kod !! Spróbuj ponownie !!
         </Alert>
       );
     else if (!discountStatus)
@@ -52,18 +52,18 @@ class Discount extends React.Component {
               id="code"
               onChange={handleChange}
               value={value}
-              placeholder="discount code"
+              placeholder="wpisz kod promocyjny"
             />
           </FormGroup>
 
           <Button color="primary" onClick={handleSubmit}>
-            Confirm
+            Potwierdź
           </Button>
         </Form>
       );
     else if (discountStatus)
       return (
-        <Alert variant="success">Code correct !! You pay 15% less !!</Alert>
+        <Alert variant="success">Kod poprawny !! Płacisz 15% mniej !!</Alert>
       );
   }
 }

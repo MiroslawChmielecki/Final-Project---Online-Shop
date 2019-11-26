@@ -1,0 +1,39 @@
+.contactPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+
+  .contactPage-header {
+    font-size: 30px;
+    margin: 30px;
+  }
+  .contactPage-email {
+    font-size: 15px;
+    text-align: center;
+  }
+  .contactPage-phone {
+    font-size: 15px;
+  }
+  .contactPage-socialMediaHeader {
+    margin: 15px;
+    text-align: center;
+  }
+  .contactPage-SocialMediaIcons {
+    @include flex-center;
+
+    .contactPage-SocialMedia-instagram {
+    }
+    .contactPage-SocialMedia-twitter {
+    }
+    .contact-social-media-linkedin {
+    }
+    .contactPage-SocialMedia-facebook {
+    }
+    .contactPage-SocialMedia-youtube {
+    }
+    .mediaIcon {
+      padding: 10px;
+    }
+  }
+}
